@@ -12,7 +12,7 @@ import { ExampleAngularMaterialComponent } from './example/example-angular-mater
 import { ExampleFlexLayoutComponent } from './example/example-flex-layout/example-flex-layout.component';
 import { ExampleDirectivesAndPipesComponent } from './example/example-directives-and-pipes/example-directives-and-pipes.component';
 
-@NgModule({
+@NgModule({ 
   declarations: [
     AppComponent,
     ExampleComponentComponent,
