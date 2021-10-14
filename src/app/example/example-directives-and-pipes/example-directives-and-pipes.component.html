@@ -9,7 +9,7 @@
 <div class="container" *ngIf="activeSection === 0">
   <h3 appHighlight>Productos</h3>
   <ul>
-    <li *ngFor="let p of products"> {{p.name}} - {{p.price | currency: 'S/.':'symbol':'1.2-2' }}</li>
+    <li *ngFor="let p of products"> {{p.name}} - {{p.price | currency: 'S/.':'symbol':'1.2-2' }} - {{p.model}}</li>
   </ul>
 </div>
 

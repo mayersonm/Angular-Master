@@ -10,10 +10,10 @@ export class ExampleDirectivesAndPipesComponent implements OnInit {
   currentDate = new Date();
   activeSection = 0;
   products = [
-    { name: 'Laptop Macbook Pro', price: 8000 },
-    { name: 'Monitor Samsung', price: 1500.5 },
-    { name: 'Keyboard magic 2', price: 800 },
-    { name: 'Headphones', price: 150.3599 },
+    { name: 'Laptop Macbook Pro', price: 8000, model:'Apple'},
+    { name: 'Monitor Samsung', price: 1500.5,model:'Samsung'},
+    { name: 'Keyboard magic 2', price: 800,model: 'Samsung'},
+    { name: 'Headphones', price: 150.3599, model: 'Galaxy'},
   ];
 
   constructor() { }
