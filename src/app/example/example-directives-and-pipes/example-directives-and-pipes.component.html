@@ -1,4 +1,5 @@
 <h1>Directives & Pipes examples</h1>
+<h3>{{ currentDate | date:'medium' }}</h3>
 
 <div>
   <button (click)="showProducts()">Show Products</button>
@@ -6,14 +7,14 @@
 </div>
 
 <div class="container" *ngIf="activeSection === 0">
-  <h3>Productos</h3>
+  <h3 appHighlight>Productos</h3>
   <ul>
-    <li *ngFor="let p of products"> {{p.name}} - {{p.price}}</li>
+    <li *ngFor="let p of products"> {{p.name}} - {{p.price | currency: 'S/.':'symbol':'1.2-2' }}</li>
   </ul>
 </div>
 
 <div class="container" *ngIf="activeSection !== 0">
-  <h3>Clients</h3>
+  <h3 appHighlight>Clients</h3>
   <ul>
     <li>Juan Perez</li>
     <li>Ronaldo Nazario</li>
@@ -21,3 +22,11 @@
     <li>Paolo Gurerrero</li>
   </ul>
 </div>
+
+<input type="text" [OnlyNumber]="true" placeholder="Buscar producto">
+
+<br>
+<br>
+<br>
+
+<h3>{{examplePipeString | reverse}}</h3>
