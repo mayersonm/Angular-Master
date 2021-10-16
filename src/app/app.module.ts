@@ -16,7 +16,8 @@ import { HighlightDirective } from './example/example-directives-and-pipes/highl
 import { OnlyNumber } from './example/example-directives-and-pipes/only-number.directive';
 import { ReversePipe } from './example/example-directives-and-pipes/reverse.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { ProductDetailComponent } from './products/product-details/product-details.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
 
 
 @NgModule({
@@ -30,8 +31,8 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
     HighlightDirective,
     OnlyNumber,
     ReversePipe,
-    PageNotFoundComponent,
-    ProductDetailsComponent
+    ProductListComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +45,8 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
       { path: 'example-angular-material', component: ExampleAngularMaterialComponent},
       { path: 'example-flex-layout', component: ExampleFlexLayoutComponent},
       { path: 'example-directives-and-pipes', component: ExampleDirectivesAndPipesComponent},
+      { path: 'products', component: ProductListComponent},
+      { path: 'products/:id', component: ProductDetailComponent},
       { path: '', redirectTo: 'example-angular-material', pathMatch: 'full'},
       { path: '**', component: PageNotFoundComponent },
     ])
