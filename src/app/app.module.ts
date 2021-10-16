@@ -20,6 +20,7 @@ import { ProductDetailComponent } from './products/product-details/product-detai
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { RegisterComponent } from './auth/register/register.component';
     ProductListComponent,
     ProductDetailComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
