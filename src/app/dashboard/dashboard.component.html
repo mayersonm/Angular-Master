@@ -1,1 +1,10 @@
-<p>dashboard works!</p>
+<mat-toolbar color="primary">
+    <span>Angular QBO</span>
+    <button mat-button [routerLink]="['example-Component']">Component</button>
+    <button mat-button [routerLink]="['example-flex-layout']">Flex Layout</button>
+    <button mat-button [routerLink]="['example-angular-material']">Angular Material  </button>
+    <button mat-button [routerLink]="['example-directives-and-pipes']">Directives / Pipes </button>
+    <button mat-button [routerLink]="['products']"> Products</button>
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>

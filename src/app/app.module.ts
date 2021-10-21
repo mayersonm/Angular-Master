@@ -49,13 +49,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},
       { path: 'register', component: RegisterComponent},
-      { path: 'example-Component', component: ExampleComponentComponent},
-      { path: 'example-angular-material', component: ExampleAngularMaterialComponent},
-      { path: 'example-flex-layout', component: ExampleFlexLayoutComponent},
-      { path: 'example-directives-and-pipes', component: ExampleDirectivesAndPipesComponent},
-      { path: 'products', component: ProductListComponent},
-      { path: 'products/:id', component: ProductDetailComponent},
-      { path: '', redirectTo: 'example-angular-material', pathMatch: 'full'},
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        children: [     
+          { path: 'example-Component', component: ExampleComponentComponent},
+          { path: 'example-angular-material', component: ExampleAngularMaterialComponent},
+          { path: 'example-flex-layout', component: ExampleFlexLayoutComponent},
+          { path: 'example-directives-and-pipes', component: ExampleDirectivesAndPipesComponent},
+          { path: 'products', component: ProductListComponent},
+          { path: 'products/:id', component: ProductDetailComponent},
+        ]
+      },
+      { path: '', redirectTo: 'login', pathMatch: 'full'},
       { path: '**', component: PageNotFoundComponent },
     ])
   ],
