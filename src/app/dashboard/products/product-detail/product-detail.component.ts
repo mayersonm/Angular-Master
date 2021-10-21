@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss']
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
   id!: number;
