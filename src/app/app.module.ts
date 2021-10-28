@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -23,7 +23,9 @@ import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth.guard';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppInterceptor } from './core/http/app.interceptor';
+import { ExampleRxjsComponent } from './dashboard/example/example-rxjs/example-rxjs.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +44,13 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    AuthComponent
+    AuthComponent,
+    ExampleRxjsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
@@ -70,6 +74,7 @@ import { HttpClientModule } from '@angular/common/http';
           { path: 'example-angular-material', component: ExampleAngularMaterialComponent },
           { path: 'example-flex-layout', component: ExampleFlexLayoutComponent },
           { path: 'example-directives-and-pipes', component: ExampleDirectivesAndPipesComponent },
+          { path: 'example-rxjs', component: ExampleRxjsComponent },
           { path: 'products', component: ProductListComponent },
           { path: 'products/:id', component: ProductDetailComponent },
         ]
@@ -78,7 +83,9 @@ import { HttpClientModule } from '@angular/common/http';
       { path: '**', component: PageNotFoundComponent },
     ])
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent] 
 })
 export class AppModule { }

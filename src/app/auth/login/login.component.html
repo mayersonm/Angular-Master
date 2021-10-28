@@ -1,24 +1,40 @@
 <h1>Login</h1>
 
-<form>
+<form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()">
   <fieldset fxLayout="column">
 
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
-      <input #inputEmail matInput>
+      <input
+        type="text"
+        name="email"
+        formControlName="email"
+        matInput>
+
+      <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Email is required</mat-error>
+      <mat-error *ngIf="loginForm.controls['email'].hasError('email')">Email is invalid</mat-error>
+
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
-      <input #inputPassword matInput>
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        matInput>
+
+        <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Password is required</mat-error>
     </mat-form-field>
 
-    <button 
-    mat-raised-button 
-    color="primary" 
-    (click)="onSubmit(inputEmail.value,inputPassword.value)"
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
     >
-    Login</button>
+      Login
+    </button>
+
   </fieldset>
 
 </form>
