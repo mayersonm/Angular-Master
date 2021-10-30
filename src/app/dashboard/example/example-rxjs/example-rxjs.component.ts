@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { of } from 'rxjs';
-import { delay, filter, map } from 'rxjs/operators';
+import { delay, filter, map, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-example-rxjs',
@@ -29,7 +29,8 @@ export class ExampleRxjsComponent implements OnInit {
     .pipe(
       filter(user => user.nickname !== 'Admin'),
       map(user => user.nickname),
-      delay(3000)
+      delay(3000),
+      take(2)
     )
     .subscribe(
       (user) => {

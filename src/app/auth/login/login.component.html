@@ -1,7 +1,7 @@
 <h1>Login</h1>
 
 <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()">
-  <fieldset fxLayout="column">
+  <fieldset fxLayout="column" [disabled]="isLoading">
 
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
@@ -31,10 +31,21 @@
       type="submit"
       mat-raised-button
       color="primary"
+      [disabled]="isLoading"
     >
-      Login
+      <span *ngIf="isLoading === false">Login</span>
+      <span *ngIf="isLoading === true">Loading...</span>
     </button>
 
   </fieldset>
 
 </form>
+
+<div
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  class="register"
+>
+  <p>Don't have an account?</p>
+  <a (click)="onNavigateToRegister()">Create an account</a>
+</div>
